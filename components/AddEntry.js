@@ -104,10 +104,16 @@ class AddEntry extends Component {
 
     if (this.props.alreadyLogged) {
       return (
-        <View style={styles.container}>
-          <Ionicons name='ios-happy' size={100}/>
+        <View style={styles.center}>
+          <Ionicons 
+            name={Platform.OS === 'ios' ? 'ios-happy' : 'md-happy'}
+            size={100}/>
           <Text>You already logged your information today</Text>
-          <TextButton onPress={this.reset}>Reset</TextButton>
+          <TextButton 
+            style={{ padding: 10 }}
+            onPress={this.reset}>
+            Reset
+          </TextButton>
         </View>
       )
     }
@@ -123,7 +129,7 @@ class AddEntry extends Component {
           const value = this.state[key]
 
           return (
-            <View key={key}>
+            <View key={key} style={styles.row}>
               {getIcon()}
               {type === 'slider'
                 ? <UdaciSlider 
@@ -154,6 +160,18 @@ const styles = StyleSheet.create({
     padding: 20,
     paddingTop: 40,
     backgroundColor: white
+  },
+  row: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  center: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 30,
+    marginRight: 30,
   },
   iosSubmitButton: {
     backgroundColor: purple,

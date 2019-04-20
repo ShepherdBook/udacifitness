@@ -104,7 +104,7 @@ class AddEntry extends Component {
 
     if (this.props.alreadyLogged) {
       return (
-        <View>
+        <View style={styles.container}>
           <Ionicons name='ios-happy' size={100}/>
           <Text>You already logged your information today</Text>
           <TextButton onPress={this.reset}>Reset</TextButton>
@@ -113,7 +113,7 @@ class AddEntry extends Component {
     }
 
     return (
-      <View>
+      <View style={styles.container}>
         <DateHeader date={(new Date()).toLocaleDateString()}/>
         
         <Text>{JSON.stringify(this.state)}</Text>
@@ -149,6 +149,12 @@ class AddEntry extends Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20,
+    paddingTop: 40,
+    backgroundColor: white
+  },
   iosSubmitButton: {
     backgroundColor: purple,
     padding: 10,

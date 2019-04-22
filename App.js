@@ -1,5 +1,5 @@
 import React from 'react'
-import { View } from 'react-native'
+import { View, Platform } from 'react-native'
 import AddEntry from './components/AddEntry'
 import { createStore } from "redux";
 import { Provider } from "react-redux";
@@ -8,7 +8,6 @@ import History from './components/History';
 import { createBottomTabNavigator, createAppContainer } from "react-navigation";
 import { purple, white } from "./utils/colors";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
-import { Platform } from 'expo-core';
 
 const Tabs = createBottomTabNavigator({
   History: {

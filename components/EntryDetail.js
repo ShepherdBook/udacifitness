@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
-import { timeToString, getDailyReminderValue } from '../utils/helpers'
+import { timeToString, GetDailyReminderValue } from '../utils/helpers'
 import MetricCard from './MetricCard'
 import { white } from '../utils/helpers'
 import TextButton from './TextButton'
@@ -72,7 +72,7 @@ function mapDispatchToProps (dispatch, { navigation }) {
   return {
     remove: () => dispatch(addEntry({
       [entryId]: timeToString() === entryId
-        ? getDailyReminderValue()
+        ? GetDailyReminderValue()
         : null
     })),
     goBack: () => navigation.goBack()
